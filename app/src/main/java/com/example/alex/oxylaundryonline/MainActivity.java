@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDrawer;
@@ -32,8 +35,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View headerView = navigationView.getHeaderView(0);
         TextView navEmail = (TextView) headerView.findViewById(R.id.tv_email);
         navEmail.setText(auth.getCurrentUser().getEmail());
-        TextView navUser = (TextView) headerView.findViewById(R.id.tv_user);
-        //navUser.setText(mDatabase.child("Users").child(auth.getCurrentUser().getUid()).addListenerForSingleValueEvent();
+        final TextView navUser = (TextView) headerView.findViewById(R.id.tv_user);
+        mDatabase.child("Users").child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        })
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawer,R.string.open,R.string.close);
