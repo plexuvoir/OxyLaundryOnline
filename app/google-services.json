@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "618312239394",
+    "firebase_url": "https://oxylaundryonline-33594.firebaseio.com",
+    "project_id": "oxylaundryonline-33594",
+    "storage_bucket": "oxylaundryonline-33594.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618312239394:android:1cd4f25b87b4aca7",
+        "android_client_info": {
+          "package_name": "com.example.alex.oxylaundryonline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618312239394-n15chqudogf37il66513rcgk32l047p3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alex.oxylaundryonline",
+            "certificate_hash": "7e62b22075bf828ed15ddb3d4e3d10873d1d55b9"
+          }
+        },
+        {
+          "client_id": "618312239394-lo64p2hihgtcl27j9itupab9b69te0bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1q9NZJC5zgFhs5RgASVVgE7-ZpIlG4t0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618312239394-lo64p2hihgtcl27j9itupab9b69te0bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
