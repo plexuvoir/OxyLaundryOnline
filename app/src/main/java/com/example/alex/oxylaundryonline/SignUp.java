@@ -1,5 +1,6 @@
 package com.example.alex.oxylaundryonline;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -69,6 +71,8 @@ public class SignUp extends AppCompatActivity {
                             dataMap.put("alamat", alamatString);
                             dataMap.put("nomorHP", nomorHPString);
                             mDatabase.child("Users").child(auth.getCurrentUser().getUid().toString()).setValue(dataMap);
+                            Toast.makeText(SignUp.this,"Akun berhasil dibuat, silakan sign in",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignUp.this,SignInActivity.class));
                         }
                     });
 
