@@ -1,6 +1,8 @@
 package com.example.alex.oxylaundryonline;
 
+import android.app.Fragment;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,7 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        BottomNavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDrawer;
     private ActionBarDrawerToggle mToggle;
     private FirebaseAuth auth;
@@ -32,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
+        BottomNavigationView btmNavigation = findViewById(R.id.navigation);
+        btmNavigation.setOnNavigationItemSelectedListener(this);
+        //loadFragment(new PromoFragment());
+
+
 
 
         mDatabase.child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
@@ -67,8 +75,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    private boolean loadFragment(android.support.v4.app.Fragment fragment){
+        if (fragment != null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            return true;
+        }
         return false;
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        android.support.v4.app.Fragment fragment = null;
+
+        switch (item.getItemId()){
+            case R.id.navigation_promo:
+                fragment = new PromoFragment();
+                break;
+            case R.id.navigation_jadwal:
+                fragment = new JadwalFragment();
+                break;
+            case R.id.navigation_aktivitas:
+                fragment = new AktivitasFragment();
+                break;
+        }
+        return loadFragment(fragment);
+    }
+
 }
