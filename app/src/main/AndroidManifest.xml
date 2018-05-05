@@ -27,13 +27,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2" />
         <activity android:name=".ResetPasswordActivity" />
         <activity
-            android:name=".Main3Activity"
-            android:label="@string/title_activity_main3"
+            android:name=".tes"
+            android:label="@string/title_activity_tes"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
