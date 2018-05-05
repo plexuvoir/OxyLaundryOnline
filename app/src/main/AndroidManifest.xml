@@ -26,8 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResetPasswordActivity"/>
+        <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".MainActivity" />
+
     </application>
 
 </manifest>
