@@ -33,27 +33,32 @@ public class SignInActivity extends AppCompatActivity {
         signIn = (Button)findViewById(R.id.btn_signIn);
         message=(TextView)findViewById(R.id.message);
         auth = FirebaseAuth.getInstance();
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (username.getText().toString().matches("") || password.getText().toString().matches("")){
+                    Toast.makeText(SignInActivity.this, "Mohon isi Username/Password!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    auth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString()).addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                                finish();
+                            }
+                            else {
+                                Toast.makeText(SignInActivity.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+
+                            //Log.d("cek","success");
+
+                        }
+                    });
+                }
                 //validate(username.getText().toString(), password.getText().toString());
-                auth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString()).addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            startActivity(new Intent(SignInActivity.this, MainActivity.class));
-                            finish();
-                        }
-                        else {
-                            Toast.makeText(SignInActivity.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
 
-
-                        //Log.d("cek","success");
-
-                    }
-                });
 
             }
         });
