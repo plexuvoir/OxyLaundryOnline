@@ -94,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FF7C06"
+                android:id="@+id/txt_forgot"
                 android:text="Lupa Kata Sandi?"
                 android:layout_gravity="center"
                 android:textSize="10sp"
