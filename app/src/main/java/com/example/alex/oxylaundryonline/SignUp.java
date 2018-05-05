@@ -24,7 +24,8 @@ import java.util.HashMap;
 
 public class SignUp extends AppCompatActivity {
     private DatabaseReference mDatabase;
-    private EditText email, password, retypePassword, username, alamat, nomorHP;
+    private EditText username;
+    private EditText email, password, retypePassword, alamat, nomorHP;
     private CheckBox agreement;
     private Button submit;
     private TextView wrongPass;
@@ -39,7 +40,7 @@ public class SignUp extends AppCompatActivity {
         email = (EditText) findViewById(R.id.txt_email);
         password = (EditText) findViewById(R.id.txt_password);
         retypePassword = (EditText) findViewById(R.id.txt_retype_password);
-        username = (EditText) findViewById(R.id.txt_username);
+        //username = (EditText) findViewById(R.id.txt_username);
         alamat = (EditText) findViewById(R.id.txt_alamat);
         nomorHP = (EditText) findViewById(R.id.txt_nomorHP);
         agreement = (CheckBox) findViewById(R.id.agreement);
@@ -58,13 +59,13 @@ public class SignUp extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             String retypePasswordString = retypePassword.getText().toString().trim();
-                            String usernameString = username.getText().toString().trim();
+                            //String usernameString = username.getText().toString().trim();
                             String alamatString = alamat.getText().toString().trim();
                             String nomorHPString = nomorHP.getText().toString().trim();
 
                             HashMap<String, String> dataMap = new HashMap<String, String>();
                             dataMap.put("retypePassword", retypePasswordString);
-                            dataMap.put("username", usernameString);
+                            //dataMap.put("username", usernameString);
                             dataMap.put("alamat", alamatString);
                             dataMap.put("nomorHP", nomorHPString);
                             mDatabase.child("Users").child(auth.getCurrentUser().getUid().toString()).setValue(dataMap);
@@ -72,7 +73,7 @@ public class SignUp extends AppCompatActivity {
                     });
 
                 } else {
-                    wrongPass.setText("password tidak cocok");
+                    wrongPass.setText("Password tidak cocok");
                 }
 
             }

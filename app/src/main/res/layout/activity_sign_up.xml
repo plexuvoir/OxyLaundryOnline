@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alex.oxylaundryonline.SignUp">
+    tools:context="com.example.alex.oxylaundryonline.SignUp"
+    android:background="@drawable/gradient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,110 +14,191 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sign up"
+            android:text="Registrasi"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="email"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txt_email"
-            />
+            android:layout_margin="15dp"
+            android:textStyle="bold"
+            android:textColor="#5DB9E8"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="password"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txt_password"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="re-type password"
+            android:text="Registrasi"
             android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_margin="15dp"
+            android:textStyle="bold"
+            android:textColor="#5DB9E8"
             />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txt_retype_password"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="username"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txt_username"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="alamat"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txt_alamat"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="nomor hp"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txt_nomorHP"
-            />
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="430dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:background="#FFFFFF">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <CheckBox
-                android:layout_marginLeft="50dp"
-                android:layout_width="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_weight="0"
+                android:src="@drawable/user"
+                android:layout_marginRight="15dp"
+                />
+            <EditText
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textSize="10sp"
+                android:hint="email"
+                android:layout_weight="5"
+                android:id="@+id/txt_email"
+                android:backgroundTint="#10BFEA"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_weight="0"
+                android:src="@drawable/user"
+                android:layout_marginRight="15dp"
+                />
+            <EditText
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:hint="Kata Sandi"
+                android:textSize="10sp"
+                android:inputType="textPassword"
+                android:layout_weight="5"
+                android:backgroundTint="#10BFEA"
+                android:id="@+id/txt_password"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_weight="0"
+                android:src="@drawable/user"
+                android:layout_marginRight="15dp"
+                />
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textSize="10sp"
+                android:hint="Ulangi Kata Sandi"
+                android:inputType="textPassword"
+                android:layout_weight="5"
+                android:backgroundTint="#10BFEA"
+                android:id="@+id/txt_retype_password"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_weight="0"
+                android:src="@drawable/user"
+                android:layout_marginRight="15dp"
+                />
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textSize="10sp"
+                android:layout_weight="5"
+                android:hint="Nomor Telepon"
+                android:backgroundTint="#10BFEA"
+                android:id="@+id/txt_nomorHP"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <EditText
+                android:maxLength="120"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:minLines="6"
+                android:maxLines="10"
+                android:gravity="top|left"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:backgroundTint="#10BFEA"
+                android:scrollbars="vertical"
+                android:layout_weight="5"
+                android:hint="Alamat"
+                android:id="@+id/txt_alamat"
+                />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <CheckBox
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/agreement"
+
                 />
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="saya mengikuti aturan yang berlaku"
+                android:layout_height="15dp"
+                android:text="Saya menyetujui "
+                android:textSize="10sp"
+
+                />
+            <TextView
+                android:textStyle="bold"
+                android:textColor="#FF7C06"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:text="syarat dan ketentuan"
+                android:textSize="10sp"
+
                 />
         </LinearLayout>
         <Button
-            android:layout_width="wrap_content"
+            android:textColor="#FFFFFF"
+            android:background="#FF7C06"
+            android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:text="submit"
+            android:text="DAFTAR"
             android:id="@+id/btn_submit"/>
         <TextView
             android:layout_gravity="center"
@@ -125,6 +207,10 @@
             android:text=""
             android:id="@+id/txt_wrong_pass"
             />
+    </LinearLayout>
+
+
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

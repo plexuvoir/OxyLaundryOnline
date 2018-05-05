@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alex.oxylaundryonline.SignUp">
+    tools:context="com.example.alex.oxylaundryonline.SignUp"
+    android:background="@drawable/gradient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,55 +13,124 @@
         android:padding="50dp">
         <ImageView
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/logo_oxy"
             app:srcCompat="@drawable/logo_oxy"
             />
-        <TextView
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:padding="15dp"
+            android:background="#FFFFFF"
+            >
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0"
+                    android:src="@drawable/user"
+                    android:layout_marginRight="15dp"
+                    />
+                <EditText
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/txtusername"
+                    android:hint="Username"
+                    android:textSize="10sp"
+                    android:layout_weight="5"
+                    android:backgroundTint="#10BFEA"
+
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0"
+                    android:src="@drawable/lock"
+                    android:layout_marginRight="15dp"
+                    />
+                <EditText
+                    android:inputType="textPassword"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/txtpassword"
+                    android:hint="Kata Sandi"
+                    android:textSize="10sp"
+                    android:layout_weight="5"
+                    android:backgroundTint="#10BFEA"
+                    />
+            </LinearLayout>
+
+
+
+            <Button
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7dp"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:textColor="#FFFFFF"
+                android:background="#FF7C06"
+                android:layout_gravity="center"
+                android:text="Masuk"
+                android:id="@+id/btn_signIn"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF7C06"
+                android:text="Lupa Kata Sandi?"
+                android:layout_gravity="center"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sign in"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="username"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txtusername"
-            />
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum memiliki akun? "
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DAFTAR"
+                android:textStyle="bold"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:id="@+id/daftar"
+                />
+        </LinearLayout>
+
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="password"
+            android:layout_marginTop="15dp"
             android:layout_gravity="center"
-            />
-        <EditText
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="50dp"
-            android:id="@+id/txtpassword"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:text="sign in"
-            android:id="@+id/btn_signIn"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/message"
+            android:textColor="#FF7C06"
             />
 
     </LinearLayout>
