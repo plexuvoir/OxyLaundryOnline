@@ -22,7 +22,7 @@ public class SignInActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button signIn;
-    private TextView message;
+    private TextView message, daftar;
     private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,14 @@ public class SignInActivity extends AppCompatActivity {
         password= (EditText)findViewById(R.id.txtpassword);
         signIn = (Button)findViewById(R.id.btn_signIn);
         message=(TextView)findViewById(R.id.message);
+        daftar=(TextView)findViewById(R.id.daftar);
         auth = FirebaseAuth.getInstance();
+        daftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignInActivity.this, SignUp.class));
+            }
+        });
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

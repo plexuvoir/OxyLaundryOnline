@@ -48,6 +48,7 @@
                 android:layout_height="40dp"
                 android:textSize="10sp"
                 android:hint="email"
+                android:inputType="textEmailAddress"
                 android:layout_weight="5"
                 android:id="@+id/txt_email"
                 android:backgroundTint="#10BFEA"
