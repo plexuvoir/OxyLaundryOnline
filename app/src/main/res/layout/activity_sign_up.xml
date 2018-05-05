@@ -156,7 +156,7 @@
 
         <LinearLayout
             android:layout_width="230dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:orientation="vertical"
             android:layout_gravity="center">
             <TextView
@@ -220,16 +220,16 @@
             android:layout_gravity="center"
             android:text="DAFTAR"
             android:id="@+id/btn_submit"/>
+    </LinearLayout>
+
         <TextView
+            android:layout_marginTop="7dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             android:id="@+id/txt_wrong_pass"
             />
-    </LinearLayout>
-
-
 
     </LinearLayout>
 

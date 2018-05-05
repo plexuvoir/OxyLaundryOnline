@@ -17,12 +17,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.w3c.dom.Text;
+
 public class SignInActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
     private Button signIn;
-    private TextView message, daftar;
+    private TextView message, daftar, forgotPassword;
     private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,20 @@ public class SignInActivity extends AppCompatActivity {
         message=(TextView)findViewById(R.id.message);
         daftar=(TextView)findViewById(R.id.daftar);
         auth = FirebaseAuth.getInstance();
+        forgotPassword=(TextView)findViewById(R.id.txt_forgot);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignInActivity.this,ResetPasswordActivity.class));
+            }
+        });
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SignInActivity.this, SignUp.class));
             }
         });
+
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
