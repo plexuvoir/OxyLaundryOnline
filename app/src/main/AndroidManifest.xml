@@ -26,12 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ResetPasswordActivity"/>
         <activity android:name=".MainActivity" />
-        <activity android:name=".ResetPasswordActivity" />
-        <activity
-            android:name=".tes"
-            android:label="@string/title_activity_tes"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
