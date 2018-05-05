@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,23 +31,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View headerView = navigationView.getHeaderView(0);
-        TextView navEmail = (TextView) headerView.findViewById(R.id.tv_email);
-        navEmail.setText(auth.getCurrentUser().getEmail());
-        final TextView navUser = (TextView) headerView.findViewById(R.id.tv_user);
-        mDatabase.child("Users").child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users");
+
+
+        mDatabase.child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                View headerView = navigationView.getHeaderView(0);
+                TextView navEmail = (TextView) headerView.findViewById(R.id.tv_email);
+                navEmail.setText(auth.getCurrentUser().getEmail());
+                TextView navUser = (TextView) headerView.findViewById(R.id.tv_user);
+                navUser.setText(dataSnapshot.getValue(String.class));
+                Toast.makeText(MainActivity.this, dataSnapshot.getValue(String.class), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        })
+        });
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawer,R.string.open,R.string.close);
