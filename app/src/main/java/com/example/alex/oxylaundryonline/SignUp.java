@@ -64,19 +64,15 @@ public class SignUp extends AppCompatActivity {
                             //String usernameString = username.getText().toString().trim();
                             String alamatString = alamat.getText().toString().trim();
                             String nomorHPString = nomorHP.getText().toString().trim();
-                            if(task.isSuccessful()){
-                                HashMap<String, String> dataMap = new HashMap<String, String>();
-                                dataMap.put("retypePassword", retypePasswordString);
-                                //dataMap.put("username", usernameString);
-                                dataMap.put("alamat", alamatString);
-                                dataMap.put("nomorHP", nomorHPString);
-                                mDatabase.child("Users").child(auth.getCurrentUser().getUid().toString()).setValue(dataMap);
-                                Toast.makeText(SignUp.this, "Sign Up Berhasil, Silakan Login", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(SignUp.this, SignInActivity.class));
-                                finish();
-                            }
 
-
+                            HashMap<String, String> dataMap = new HashMap<String, String>();
+                            dataMap.put("retypePassword", retypePasswordString);
+                            //dataMap.put("username", usernameString);
+                            dataMap.put("alamat", alamatString);
+                            dataMap.put("nomorHP", nomorHPString);
+                            mDatabase.child("Users").child(auth.getCurrentUser().getUid().toString()).setValue(dataMap);
+                            Toast.makeText(SignUp.this,"Akun berhasil dibuat, silakan sign in",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignUp.this,SignInActivity.class));
                         }
                     });
 

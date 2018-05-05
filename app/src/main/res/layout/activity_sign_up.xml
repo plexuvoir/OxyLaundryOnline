@@ -133,8 +133,14 @@
         <LinearLayout
             android:layout_width="230dp"
             android:layout_height="100dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:textSize="10sp"
+                />
             <EditText
                 android:maxLength="120"
                 android:inputType="textMultiLine"
@@ -142,13 +148,12 @@
                 android:minLines="6"
                 android:maxLines="10"
                 android:gravity="top|left"
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
                 android:backgroundTint="#10BFEA"
                 android:scrollbars="vertical"
                 android:layout_weight="5"
-                android:hint="Alamat"
                 android:id="@+id/txt_alamat"
                 />
         </LinearLayout>
