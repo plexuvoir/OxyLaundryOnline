@@ -1,9 +1,12 @@
 package com.example.alex.oxylaundryonline;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,8 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        BottomNavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener,
+NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDrawer;
     private ActionBarDrawerToggle mToggle;
     private FirebaseAuth auth;
@@ -37,8 +40,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
         BottomNavigationView btmNavigation = findViewById(R.id.navigation);
         btmNavigation.setOnNavigationItemSelectedListener(this);
+        NavigationView drawNav = findViewById(R.id.nav_view);
+        drawNav.setNavigationItemSelectedListener(this);
         //loadFragment(new PromoFragment());
-
 
 
 
@@ -51,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navEmail.setText(auth.getCurrentUser().getEmail());
                 TextView navUser = (TextView) headerView.findViewById(R.id.tv_user);
                 navUser.setText(dataSnapshot.getValue(String.class));
-                Toast.makeText(MainActivity.this, dataSnapshot.getValue(String.class), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, dataSnapshot.getValue(String.class), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -80,12 +84,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             return true;
         }
+//        else if (fragment.equals(new SettingsFragment())){
+//            getSupportFragmentManager().beginTransaction().replace(R.id.drawer, fragment).commit();
+//            return true;
+//
+//        }
         return false;
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         android.support.v4.app.Fragment fragment = null;
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
 
         switch (item.getItemId()){
             case R.id.navigation_promo:
@@ -97,6 +107,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.navigation_aktivitas:
                 fragment = new AktivitasFragment();
                 break;
+            case R.id.nav_settings:
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                drawer.closeDrawer(GravityCompat.START);
+                break;
+            case R.id.nav_user_info:
+                startActivity(new Intent(MainActivity.this, UserInfo.class));
+                drawer.closeDrawer(GravityCompat.START);
         }
         return loadFragment(fragment);
     }

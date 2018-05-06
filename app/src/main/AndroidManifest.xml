@@ -26,8 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResetPasswordActivity"/>
+        <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Settings_Activity"
+            android:label="@string/title_activity_settings_"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".ChangeEmail" />
+        <activity android:name=".UserInfo"></activity>
     </application>
 
 </manifest>
