@@ -45,5 +45,7 @@
     <string name="nama">Nama :</string>
     <string name="no_hp">No. HP :</string>
     <string name="alamat">Alamat :</string>
+    <string name="edit_info">Edit Info</string>
+    <string name="simpan">Simpan</string>
 
 </resources>

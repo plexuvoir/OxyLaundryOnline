@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".UserInfo">
 
+    <Button
+        android:id="@+id/btn_editUserDt"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="200dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#FF7C06"
+        android:text="@string/edit_info"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
