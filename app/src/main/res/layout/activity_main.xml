@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer"
     tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/biru"
+        />
 
     <RelativeLayout
         android:id="@+id/fragment_container"

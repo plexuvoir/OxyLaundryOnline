@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.alex.oxylaundryonline.SignUp"
-    android:background="@drawable/gradient">
+    android:background="@drawable/gradient"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/putih"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
