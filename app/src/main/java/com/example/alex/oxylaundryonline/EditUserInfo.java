@@ -76,9 +76,9 @@ public class EditUserInfo extends AppCompatActivity {
         btn_saveChg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDatabase.child(auth.getCurrentUser().getUid()).child("nama").setValue(et_namaEdt.getText());
-                mDatabase.child(auth.getCurrentUser().getUid()).child("nomorHP").setValue(et_phoneEdt.getText());
-                mDatabase.child(auth.getCurrentUser().getUid()).child("alamat").setValue(et_addrEdt.getText());
+                mDatabase.child(auth.getCurrentUser().getUid()).child("nama").setValue(et_namaEdt.getText().toString());
+                mDatabase.child(auth.getCurrentUser().getUid()).child("nomorHP").setValue(et_phoneEdt.getText().toString());
+                mDatabase.child(auth.getCurrentUser().getUid()).child("alamat").setValue(et_addrEdt.getText().toString());
                 Toast.makeText(EditUserInfo.this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(EditUserInfo.this, MainActivity.class));
                 finish();
