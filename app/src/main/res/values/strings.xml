@@ -46,5 +46,10 @@
     <string name="no_hp">No. HP :</string>
     <string name="alamat">Alamat :</string>
     <string name="edit_info">Edit Info</string>
+    <string name="acc_settings">Pengaturan Akun</string>
+    <string name="user_info">Info Pengguna</string>
+    <string name="user_infoEdt">Edit Info Pengguna</string>
+    <string name="acc_settings1">Pengaturan</string>
+
 
 </resources>

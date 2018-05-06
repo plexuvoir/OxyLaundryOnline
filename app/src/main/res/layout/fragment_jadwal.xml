@@ -30,14 +30,19 @@
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 >
             </Spinner>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="Pilih Hari"
-                android:textColor="#FF7C06"
-                android:textSize="17sp"
-                />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Pilih Hari"
+            android:textColor="#FF7C06"
+            android:textSize="17sp"
+            />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,6 +98,8 @@
                     android:paddingHorizontal="5dp"
                     />
             </LinearLayout>
+        </HorizontalScrollView>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
