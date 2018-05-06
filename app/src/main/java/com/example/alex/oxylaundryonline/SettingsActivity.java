@@ -20,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         tv_email = (TextView) findViewById(R.id.tv_emailSettings);
+        btn_change = (Button) findViewById(R.id.btn_change);
         auth = FirebaseAuth.getInstance();
         tv_email.setText(auth.getCurrentUser().getEmail());
         btn_change.setOnClickListener(new View.OnClickListener() {

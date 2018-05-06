@@ -23,6 +23,7 @@ public class ChangeEmail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_email);
         newMail = (EditText)findViewById(R.id.et_newMail);
+        updateBtn = (Button)findViewById(R.id.btn_updtMail);
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

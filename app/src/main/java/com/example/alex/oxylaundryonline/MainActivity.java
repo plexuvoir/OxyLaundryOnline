@@ -100,13 +100,16 @@ NavigationView.OnNavigationItemSelectedListener{
         switch (item.getItemId()){
             case R.id.navigation_promo:
                 fragment = new PromoFragment();
-                break;
+                loadFragment(fragment);
+            break;
             case R.id.navigation_jadwal:
                 fragment = new JadwalFragment();
-                break;
+                loadFragment(fragment);
+            break;
             case R.id.navigation_aktivitas:
                 fragment = new AktivitasFragment();
-                break;
+                loadFragment(fragment);
+            break;
             case R.id.nav_settings:
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 drawer.closeDrawer(GravityCompat.START);
@@ -114,8 +117,9 @@ NavigationView.OnNavigationItemSelectedListener{
             case R.id.nav_user_info:
                 startActivity(new Intent(MainActivity.this, UserInfo.class));
                 drawer.closeDrawer(GravityCompat.START);
+                break;
         }
-        return loadFragment(fragment);
+        return true;
     }
 
 }

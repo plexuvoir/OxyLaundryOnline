@@ -23,16 +23,14 @@ public class UserInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
-        tv_namaInfo = (TextView)findViewById(R.id.tv_namaInfo);
-        tv_telp = (TextView)findViewById(R.id.tv_phoneInfo);
-        tv_addr = (TextView)findViewById(R.id.tv_addrInfo);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users");
         auth = FirebaseAuth.getInstance();
 
         mDatabase.child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                tv_namaInfo = (TextView)findViewById(R.id.tv_namaInfo);
                 tv_namaInfo.setText(dataSnapshot.getValue().toString());
             }
 
@@ -44,6 +42,7 @@ public class UserInfo extends AppCompatActivity {
         mDatabase.child(auth.getCurrentUser().getUid()).child("nomorHP").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                tv_telp = (TextView)findViewById(R.id.tv_phoneInfo);
                 tv_telp.setText(dataSnapshot.getValue().toString());
             }
 
@@ -56,6 +55,7 @@ public class UserInfo extends AppCompatActivity {
         mDatabase.child(auth.getCurrentUser().getUid()).child("alamat").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                tv_addr = (TextView)findViewById(R.id.tv_addrInfo);
                 tv_addr.setText(dataSnapshot.getValue().toString());
             }
 
