@@ -3,9 +3,46 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/jadwal_fragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="JADWAL"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Langganan"
+            android:textColor="#FF7C06"
+            android:textSize="17sp"
+            />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#FF7C06"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            >
+        </Spinner>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Pilih Hari"
+            android:textColor="#FF7C06"
+            android:textSize="17sp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/j"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
