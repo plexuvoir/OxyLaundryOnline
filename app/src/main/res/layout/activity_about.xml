@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alex.oxylaundryonline.AboutActivity"
+    android:padding="15dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textColor="#FF7C06"
+                android:text="About Us"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Oxy Laundry Apps adalah aplikasi layanan antar - jemput barang cucian rumah tangga menuju Oxy Laundry"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Oxy Laundry adalah tempat laundry yang menggunakan teknologi terkemuka dari USA, dengan pelayanan cepat, bersih, wangi, rapi dan terjamin."/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Selain menggunakan Oxy Laundry Apps, anda juga bisa mendatangi Oxy Laundry terdekat dikota anda, dengan pelayanan :"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="90 menit selesai\nFree wifi\nFree pick up and delivery\nFree detergent\nSelf service (bisa cuci dan setrika sendiri)\nExtra Higienis\nFasilitas Lengkap"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Info aplikasi"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Aplikasi ini dibuat oleh Ronin team dari Raion Community dan di support oleh Malang Digital Store"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Special thanks to : Malang Digital Core coworking space, RnD 5th Floor, Ma Chung University, N-1,, Villa Puncak Tidar, Karangwidoro, Dau, Malang, Jawa Timur 65151"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</android.support.constraint.ConstraintLayout>

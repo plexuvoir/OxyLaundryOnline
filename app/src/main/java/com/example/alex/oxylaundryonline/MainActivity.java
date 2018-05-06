@@ -118,6 +118,10 @@ NavigationView.OnNavigationItemSelectedListener{
                 startActivity(new Intent(MainActivity.this, UserInfo.class));
                 drawer.closeDrawer(GravityCompat.START);
                 break;
+            case R.id.nav_about:
+                startActivity(new Intent(MainActivity.this,AboutActivity.class));
+                drawer.closeDrawer(GravityCompat.START);
+                break;
         }
         return true;
     }
