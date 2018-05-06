@@ -28,7 +28,7 @@ public class ChangeEmail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                user.updateEmail(newMail.toString())
+                user.updateEmail(newMail.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

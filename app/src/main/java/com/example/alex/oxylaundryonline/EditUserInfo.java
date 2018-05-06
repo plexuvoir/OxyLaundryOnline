@@ -30,14 +30,15 @@ public class EditUserInfo extends AppCompatActivity {
         setContentView(R.layout.activity_edit_user_info);
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
         auth = FirebaseAuth.getInstance();
-        et_namaEdt = (EditText)findViewById(R.id.et_namaEdt);
-        et_phoneEdt = (EditText)findViewById(R.id.et_namaEdt);
-        et_addrEdt = (EditText)findViewById(R.id.et_addrEdt);
+        et_namaEdt = (EditText) findViewById(R.id.et_namaEdt);
+        et_phoneEdt = (EditText) findViewById(R.id.et_namaEdt);
+        et_addrEdt = (EditText) findViewById(R.id.et_addrEdt);
         btn_saveChg = (Button) findViewById(R.id.btn_saveChange);
 
         mDatabase.child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                et_namaEdt = (EditText) findViewById(R.id.et_namaEdt);
                 et_namaEdt.setText(dataSnapshot.getValue().toString());
             }
 
@@ -45,12 +46,11 @@ public class EditUserInfo extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-
-    });
-
+        });
         mDatabase.child(auth.getCurrentUser().getUid()).child("nomorHP").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                et_phoneEdt = (EditText) findViewById(R.id.et_phoneEdt);
                 et_phoneEdt.setText(dataSnapshot.getValue().toString());
             }
 
@@ -58,12 +58,12 @@ public class EditUserInfo extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-
         });
 
         mDatabase.child(auth.getCurrentUser().getUid()).child("alamat").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                et_addrEdt = (EditText) findViewById(R.id.et_addrEdt);
                 et_addrEdt.setText(dataSnapshot.getValue().toString());
             }
 
@@ -71,7 +71,6 @@ public class EditUserInfo extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-
         });
 
         btn_saveChg.setOnClickListener(new View.OnClickListener() {
@@ -87,5 +86,5 @@ public class EditUserInfo extends AppCompatActivity {
         });
 
 
-
+    }
 }
