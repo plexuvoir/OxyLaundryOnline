@@ -42,7 +42,7 @@ NavigationView.OnNavigationItemSelectedListener{
         btmNavigation.setOnNavigationItemSelectedListener(this);
         NavigationView drawNav = findViewById(R.id.nav_view);
         drawNav.setNavigationItemSelectedListener(this);
-        //loadFragment(new PromoFragment());
+        loadFragment(new PromoFragment());
 
 
 
