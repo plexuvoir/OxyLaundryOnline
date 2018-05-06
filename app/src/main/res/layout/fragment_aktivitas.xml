@@ -3,6 +3,11 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/aktivitas_fragment"
     android:padding="15dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/biru"
+        />
 
     <TextView
         android:gravity="center"
