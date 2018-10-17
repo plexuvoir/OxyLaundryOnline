@@ -19,7 +19,7 @@
         android:orientation="vertical"
         >
 
-        <include layout="@layout/app_bar_main" />
+        <!--<include layout="@layout/app_bar_main" />-->
 
 
         <android.support.design.widget.BottomNavigationView
