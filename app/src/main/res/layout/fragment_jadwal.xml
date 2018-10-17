@@ -7,152 +7,138 @@
         android:layout_height="match_parent"
         android:src="@drawable/biru"
         />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp"
-        >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Langganan"
-                android:textColor="#FF7C06"
-                android:textSize="17sp"
-                />
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:backgroundTint="#FF7C06"
-                android:id="@+id/spinner"
-                style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                >
-            </Spinner>
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Pilih Hari"
-            android:textColor="#FF7C06"
-            android:textSize="17sp"
-            />
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginBottom="40dp"
+                    >
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp">
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/s"
-                    android:id="@+id/senin"
-                    android:paddingHorizontal="5dp"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/s"
-                    android:id="@+id/selasa"
-                    android:paddingHorizontal="5dp"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/r"
-                    android:id="@+id/rabu"
-                    android:paddingHorizontal="5dp"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/k"
-                    android:id="@+id/kamis"
-                    android:paddingHorizontal="5dp"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/j"
-                    android:id="@+id/jumat"
-                    android:paddingHorizontal="5dp"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/s"
-                    android:id="@+id/sabtu"
-                    android:paddingHorizontal="5dp"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/m"
-                    android:id="@+id/minggu"
-                    android:paddingHorizontal="5dp"
-                    />
-            </LinearLayout>
-        </HorizontalScrollView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Langganan"
+                        android:textColor="#FF7C06"
+                        android:textSize="17sp"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#FF7C06"
+                        android:id="@+id/spinner"
+                        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                        >
+                    </Spinner>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="Pilih Hari"
+                        android:textColor="#FF7C06"
+                        android:textSize="17sp"
+                        />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Keterangan"
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#FF7C06"
+                        android:id="@+id/spinner2"
+                        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                        >
+                    </Spinner>
 
-                android:layout_margin="5dp"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="Total biaya transportasi anda adalah"
-                android:textSize="15sp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:id="@+id/txt_biaya"
-                android:textSize="15sp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Biaya pencucian anda di list berikut"
-                android:layout_marginHorizontal="5dp"
-                android:textSize="15sp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textSize="15sp"
-                android:text="1. Selimut (Rp 10.000)"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textSize="15sp"
-                android:text="2. Boneka (Rp 10.000)"
-                />
-        <Button
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginTop="15dp"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:text="SUBMIT"
-            android:textColor="#FFF"
-            android:background="#FF7C06" />
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Keterangan"
+
+                        android:layout_margin="5dp"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Total biaya transportasi anda adalah"
+                        android:textSize="15sp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:id="@+id/txt_biaya"
+                        android:textSize="15sp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Biaya pencucian anda di list berikut (Per KG)"
+                        android:layout_marginHorizontal="5dp"
+                        android:textSize="15sp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="15sp"
+                        android:text="1. Cuci Kering Setrika (Rp 10.000)"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="15sp"
+                        android:text="2. Cuci Kering (Rp 10.000)"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="15sp"
+                        android:text="3. Setrika (Rp 10.000)"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="15sp"
+                        android:text="4. Cuci Basah (Rp 10.000)"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="15sp"
+                        android:text="5. Cuci Selimut (Satuan) (Rp 10.000)"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="15sp"
+                        android:text="6. Cuci Sprei (Satuan) (Rp 10.000)"
+                        />
+
+                    <Button
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:text="SUBMIT"
+                        android:textColor="#FFF"
+                        android:background="#FF7C06" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </ScrollView>
 
 </RelativeLayout>

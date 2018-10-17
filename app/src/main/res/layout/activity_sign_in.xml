@@ -11,135 +11,144 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/putih"/>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="50dp">
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/logo_oxy"
-            app:srcCompat="@drawable/logo_oxy"
-            />
-        <LinearLayout
-            android:layout_width="230dp"
-            android:layout_height="200dp"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:padding="15dp"
-            android:background="#FFFFFF"
-            >
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="50dp">
                 <ImageView
                     android:layout_gravity="center"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="0"
-                    android:src="@drawable/email"
-                    android:layout_marginRight="15dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/logo_oxy"
+                    app:srcCompat="@drawable/logo_oxy"
                     />
-                <EditText
+                <LinearLayout
+                    android:layout_width="230dp"
+                    android:layout_height="200dp"
+                    android:orientation="vertical"
                     android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/txtusername"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:textSize="10sp"
-                    android:layout_weight="5"
-                    android:backgroundTint="#10BFEA"
+                    android:padding="15dp"
+                    android:background="#FFFFFF"
+                    >
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        >
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_weight="0"
+                            android:src="@drawable/email"
+                            android:layout_marginRight="15dp"
+                            />
+                        <EditText
+                            android:layout_gravity="center"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/txtusername"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:textSize="10sp"
+                            android:layout_weight="5"
+                            android:backgroundTint="#10BFEA"
 
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_weight="0"
+                            android:src="@drawable/password"
+                            android:layout_marginRight="15dp"
+                            />
+                        <EditText
+                            android:inputType="textPassword"
+                            android:layout_gravity="center"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/txtpassword"
+                            android:hint="Kata Sandi"
+                            android:textSize="10sp"
+                            android:layout_weight="5"
+                            android:backgroundTint="#10BFEA"
+                            />
+                    </LinearLayout>
+
+
+
+                    <Button
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_width="140dp"
+                        android:layout_height="30dp"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:textColor="#FFFFFF"
+                        android:background="#FF7C06"
+                        android:layout_gravity="center"
+                        android:text="Masuk"
+                        android:id="@+id/btn_signIn"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF7C06"
+                        android:id="@+id/txt_forgot"
+                        android:text="Lupa Kata Sandi?"
+                        android:layout_gravity="center"
+                        android:textSize="10sp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal"
+                    android:paddingRight="30dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Belum memiliki akun? "
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DAFTAR"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:id="@+id/daftar"
+                        />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/message"
+                    android:textColor="#FF7C06"
                     />
+
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="0"
-                    android:src="@drawable/password"
-                    android:layout_marginRight="15dp"
-                    />
-                <EditText
-                    android:inputType="textPassword"
-                    android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/txtpassword"
-                    android:hint="Kata Sandi"
-                    android:textSize="10sp"
-                    android:layout_weight="5"
-                    android:backgroundTint="#10BFEA"
-                    />
-            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 
-
-
-            <Button
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="7dp"
-                android:layout_width="140dp"
-                android:layout_height="30dp"
-                style="@style/Base.Widget.AppCompat.Button.Borderless"
-                android:textColor="#FFFFFF"
-                android:background="#FF7C06"
-                android:layout_gravity="center"
-                android:text="Masuk"
-                android:id="@+id/btn_signIn"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#FF7C06"
-                android:id="@+id/txt_forgot"
-                android:text="Lupa Kata Sandi?"
-                android:layout_gravity="center"
-                android:textSize="10sp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:orientation="horizontal"
-            android:paddingRight="30dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Belum memiliki akun? "
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DAFTAR"
-                android:textStyle="bold"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:id="@+id/daftar"
-                />
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/message"
-            android:textColor="#FF7C06"
-            />
-
-    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
