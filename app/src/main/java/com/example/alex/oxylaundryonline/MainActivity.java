@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +30,8 @@ NavigationView.OnNavigationItemSelectedListener{
     private ActionBarDrawerToggle mToggle;
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
+    private FirebaseAuth.AuthStateListener mListener;
+
 
 
 
@@ -37,6 +40,24 @@ NavigationView.OnNavigationItemSelectedListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
+        mListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if (user != null) {
+                    //Log.d(TAG, "sing in : "+user.getUid() );
+                } else {
+                    Toast.makeText(getApplicationContext(), "Keluar ", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                }
+
+
+            }
+        };
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
         BottomNavigationView btmNavigation = findViewById(R.id.navigation);
         btmNavigation.setOnNavigationItemSelectedListener(this);
@@ -125,6 +146,24 @@ NavigationView.OnNavigationItemSelectedListener{
                 break;
         }
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //getSupportActionBar().setTitle("Lamaran Masuk");
+        auth.addAuthStateListener(mListener);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if(mListener != null){
+
+            auth.removeAuthStateListener(mListener);
+        }
     }
 
 }
