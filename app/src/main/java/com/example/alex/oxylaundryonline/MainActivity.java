@@ -62,6 +62,7 @@ NavigationView.OnNavigationItemSelectedListener{
             public void onCancelled(DatabaseError databaseError) {
 
             }
+
         });
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer);
