@@ -129,6 +129,7 @@
                         />
 
                     <Button
+                        android:id="@+id/bt_sub_jdw"
                         android:layout_gravity="center_horizontal|bottom"
                         android:layout_marginTop="15dp"
                         android:layout_width="150dp"

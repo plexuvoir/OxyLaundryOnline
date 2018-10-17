@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -101,7 +102,7 @@ NavigationView.OnNavigationItemSelectedListener{
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean loadFragment(android.support.v4.app.Fragment fragment){
+    public boolean loadFragment(android.support.v4.app.Fragment fragment){
         if (fragment != null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             return true;
@@ -127,7 +128,9 @@ NavigationView.OnNavigationItemSelectedListener{
             case R.id.navigation_jadwal:
                 fragment = new JadwalFragment();
                 loadFragment(fragment);
-            break;
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.remove(new JadwalFragment());
+                break;
             case R.id.navigation_aktivitas:
                 fragment = new AktivitasFragment();
                 loadFragment(fragment);
