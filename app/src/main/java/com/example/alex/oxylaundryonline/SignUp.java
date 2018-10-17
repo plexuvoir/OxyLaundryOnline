@@ -73,6 +73,7 @@ public class SignUp extends AppCompatActivity {
                             mDatabase.child("Users").child(auth.getCurrentUser().getUid().toString()).setValue(dataMap);
                             Toast.makeText(SignUp.this,"Akun berhasil dibuat, silakan sign in",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SignUp.this,SignInActivity.class));
+                            finish();
                         }
                     });
 
