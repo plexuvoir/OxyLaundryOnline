@@ -22,7 +22,7 @@ public class PromoFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View inflate =inflater.inflate(R.layout.fragment_aktivitas,null);
 
-
+        ((MainActivity)getActivity()).setActionBarTitle("Promo");
         recyclerView = (RecyclerView) inflate.findViewById(R.id.recV_aktv);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

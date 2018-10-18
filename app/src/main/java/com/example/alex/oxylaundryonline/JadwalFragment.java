@@ -73,6 +73,9 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
 
         final View inflate =inflater.inflate(R.layout.fragment_jadwal,null);
 
+        ((MainActivity)getActivity()).setActionBarTitle("Jadwal");
+
+
 //        senin=(CheckBox)inflate.findViewById(R.id.senin);
 //        selasa=(CheckBox)inflate.findViewById(R.id.selasa);
 //        rabu=(CheckBox)inflate.findViewById(R.id.rabu);
@@ -253,6 +256,7 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
 //                                                     );
 //                                                    startActivity(i);
                                                     ((MainActivity)getActivity()).loadFragment(new AktivitasFragment());
+                                                    ((MainActivity)getActivity()).btmNav.setSelectedItemId(R.id.navigation_aktivitas);
 
                                                 }
                                             }, 1000);

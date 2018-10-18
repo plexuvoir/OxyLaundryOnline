@@ -105,15 +105,6 @@ NavigationView.OnNavigationItemSelectedListener{
     public boolean loadFragment(android.support.v4.app.Fragment fragment){
         if (fragment != null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-            if (fragment == new AktivitasFragment()){
-                btmNav.setSelectedItemId(R.id.navigation_aktivitas);
-            }
-            else if (fragment == new PromoFragment()){
-                btmNav.setSelectedItemId(R.id.navigation_promo);
-            }
-            else if (fragment == new JadwalFragment()){
-                btmNav.setSelectedItemId(R.id.navigation_jadwal);
-            }
             return true;
         }
 //        else if (fragment.equals(new SettingsFragment())){
@@ -169,6 +160,11 @@ NavigationView.OnNavigationItemSelectedListener{
         }
         return true;
     }
+
+    public void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
+    }
+
 
     @Override
     protected void onStart() {
