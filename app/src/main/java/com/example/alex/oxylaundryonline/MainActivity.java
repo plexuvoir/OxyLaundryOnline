@@ -32,10 +32,8 @@ NavigationView.OnNavigationItemSelectedListener{
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
     private FirebaseAuth.AuthStateListener mListener;
-
-
-
-
+    public NavigationView drawNav;
+    public BottomNavigationView btmNav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +58,11 @@ NavigationView.OnNavigationItemSelectedListener{
             }
         };
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
-        BottomNavigationView btmNavigation = findViewById(R.id.navigation);
-        btmNavigation.setOnNavigationItemSelectedListener(this);
-        NavigationView drawNav = findViewById(R.id.nav_view);
+
+        //btm nav
+        btmNav = findViewById(R.id.navigation);
+        btmNav.setOnNavigationItemSelectedListener(this);
+        drawNav = findViewById(R.id.nav_view);
         drawNav.setNavigationItemSelectedListener(this);
         loadFragment(new PromoFragment());
 
@@ -105,6 +105,15 @@ NavigationView.OnNavigationItemSelectedListener{
     public boolean loadFragment(android.support.v4.app.Fragment fragment){
         if (fragment != null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            if (fragment == new AktivitasFragment()){
+                btmNav.setSelectedItemId(R.id.navigation_aktivitas);
+            }
+            else if (fragment == new PromoFragment()){
+                btmNav.setSelectedItemId(R.id.navigation_promo);
+            }
+            else if (fragment == new JadwalFragment()){
+                btmNav.setSelectedItemId(R.id.navigation_jadwal);
+            }
             return true;
         }
 //        else if (fragment.equals(new SettingsFragment())){
@@ -120,21 +129,31 @@ NavigationView.OnNavigationItemSelectedListener{
         android.support.v4.app.Fragment fragment = null;
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         switch (item.getItemId()){
             case R.id.navigation_promo:
                 fragment = new PromoFragment();
                 loadFragment(fragment);
+                ft.remove(new PromoFragment());
+                ft.remove(new JadwalFragment());
+                ft.commit();
             break;
             case R.id.navigation_jadwal:
                 fragment = new JadwalFragment();
                 loadFragment(fragment);
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.remove(new JadwalFragment());
+                drawNav.getMenu().getItem(1).setChecked(true);
+                ft.remove(new PromoFragment());
+                ft.remove(new AktivitasFragment());
+                ft.commit();
                 break;
             case R.id.navigation_aktivitas:
                 fragment = new AktivitasFragment();
                 loadFragment(fragment);
-            break;
+                drawNav.getMenu().getItem(1).setChecked(true);
+                ft.remove(new PromoFragment());
+                ft.remove(new JadwalFragment());
+                ft.commit();
+                break;
             case R.id.nav_settings:
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 drawer.closeDrawer(GravityCompat.START);

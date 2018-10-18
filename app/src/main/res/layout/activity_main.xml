@@ -5,12 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer"
+    android:background="@drawable/biru"
     tools:context=".MainActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/biru"
-        />
 
     <RelativeLayout
         android:id="@+id/fragment_container"
@@ -27,9 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
             android:background="#ffff"
             app:itemTextColor="#000"
-            app:menu="@menu/navigation"/>
+            app:menu="@menu/navigation" />
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

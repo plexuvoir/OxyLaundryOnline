@@ -1,11 +1,13 @@
 package com.example.alex.oxylaundryonline;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -152,9 +154,7 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
         bt_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String idPesanan = db.getReference("Pesanan").push().getKey();
 
-                DatabaseReference ref = db.getReference("Pesanan").child(idPesanan);
                 if (quantity == 1){
                     for (int i = 0; i < 7; i++){
                         Calendar d = Calendar.getInstance();
@@ -231,29 +231,55 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                 }
                 post.put("UID", mAuth.getCurrentUser().getUid());
                 post.put("Jenis", spinner.getSelectedItem().toString());
-                ref.setValue(post).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-                            Snackbar.make(inflate, "Order Berhasil Ditambahkan", Snackbar.LENGTH_LONG).show();
 
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Buat Pesanan")
+                        .setMessage("Apakah Anda yakin akan memesan laundry? Pesanan tidak dapat dibatalkan")
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                String idPesanan = db.getReference("Pesanan").push().getKey();
+                                DatabaseReference ref = db.getReference("Pesanan").child(idPesanan);
+                                ref.setValue(post).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            Snackbar.make(inflate, "Pesanan Berhasil Dibuat", Snackbar.LENGTH_LONG).show();
 
-                                               // Intent i=new Intent(getContext(), ((MainActivity)getActivity()).loadFragment(AktivitasFragment.class));
-                                                //startActivity(i);
-                                }
-                            }, 1000);
+                                            new Handler().postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
 
-                        }
+//                                                     Intent i=new Intent(getContext(),((MainActivity)getActivity()).loadFragment(new AktivitasFragment()));
+//                                                     );
+//                                                    startActivity(i);
+                                                    ((MainActivity)getActivity()).loadFragment(new AktivitasFragment());
 
-                        else{
-                            Snackbar.make(inflate, "FAILED", Snackbar.LENGTH_LONG).show();
-                        }
-                    }
-                });;
+                                                }
+                                            }, 1000);
+
+                                        }
+
+                                        else{
+                                            Snackbar.make(inflate, "Pesanan Dibatalkan", Snackbar.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });;
+
+
+
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             }
+
+
         });
 
 //        senin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

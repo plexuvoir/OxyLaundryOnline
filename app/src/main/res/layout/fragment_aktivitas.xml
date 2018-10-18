@@ -3,16 +3,14 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/aktivitas_fragment"
     android:padding="15dp">
-    <ImageView
+    >
+
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/biru"
-        />
+        android:id="@+id/recV_aktv">
 
-    <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Belum Ada Aktivitas." />
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

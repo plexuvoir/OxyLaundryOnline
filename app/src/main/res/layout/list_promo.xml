@@ -6,35 +6,50 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="300dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="2dp"
             android:layout_margin="5dp"
-            android:background="#EEEEEE">
+            android:background="@color/cardview_light_background"
+            android:orientation="vertical"
+            android:padding="5dp">
+
             <ImageView
+                android:id="@+id/img_promo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/contoh_promo"
-                android:id="@+id/img_promo"/>
+                android:src="@drawable/contoh_promo" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="8dp">
+
                 <TextView
-                    android:layout_width="300dp"
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kode Promo : " />
+
+                <TextView
+                    android:id="@+id/txt_promo"
+                    android:layout_width="wrap_content"
                     android:layout_height="90dp"
+                    android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="KODE PROMO: "
-                    android:id="@+id/txt_promo"/>
+                    android:textColor="@android:color/black" />
+
                 <Button
-                    android:layout_width="90dp"
+                    android:id="@+id/btn_salin"
+                    android:layout_width="70dp"
                     android:layout_height="50dp"
-                    android:text="Salin"
-                    android:textColor="#F5F5F5"
+                    android:layout_weight="1"
                     android:background="#5db8e7"
-                    android:id="@+id/btn_salin"/>
+                    android:text="Salin"
+                    android:textColor="#F5F5F5" />
             </LinearLayout>
 
         </LinearLayout>

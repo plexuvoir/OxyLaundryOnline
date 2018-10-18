@@ -19,26 +19,41 @@
         <activity android:name=".SignInActivity" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResetPasswordActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ResetPasswordActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".Settings_Activity"
             android:label="@string/acc_settings"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SettingsActivity" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"/>
+        />
         <activity android:name=".ChangeEmail"
-            android:label="@string/acc_settings1"/>
-        <activity android:name=".UserInfo" />
+            android:label="@string/acc_settings1"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".UserInfo"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".EditUserInfo"
-            android:label="@string/user_info"></activity>
-        <activity android:name=".AboutActivity"></activity>
+            android:label="@string/user_info"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".AboutActivity"
+            android:screenOrientation="portrait"/>
+
 
     </application>
 

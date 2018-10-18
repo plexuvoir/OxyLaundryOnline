@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -41,7 +41,7 @@ public class ListPromoAdapter extends RecyclerView.Adapter<ListPromoAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called.");
-        Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.img_promo);
+        //Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.img_promo);
         holder.txt_promo.setText(mImageNames.get(position));
         holder.btn_salin.setOnClickListener(new View.OnClickListener() {
             @Override
