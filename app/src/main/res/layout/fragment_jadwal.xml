@@ -125,6 +125,42 @@
                         android:text="6. Cuci Sprei (Satuan) (Rp 10.000)"
                         />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="Kode Promo (Optional)"
+                        android:textColor="#FF7C06"
+                        android:textSize="17sp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:backgroundTint="#FF7C06"
+                            android:id="@+id/input_promo"
+                            />
+                        <Button
+                            android:layout_width="60dp"
+                            android:layout_height="40dp"
+                            android:textColor="#FFF"
+                            android:background="#FF7C06"
+                            android:layout_marginBottom="5dp"
+                            android:text="CEK"
+                            android:id="@+id/btn_cek_promo"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="40dp"
+                        android:id="@+id/txt_keterangan_promo"/>
+
                     <Button
                         android:id="@+id/bt_sub_jdw"
                         android:layout_gravity="center_horizontal|bottom"
