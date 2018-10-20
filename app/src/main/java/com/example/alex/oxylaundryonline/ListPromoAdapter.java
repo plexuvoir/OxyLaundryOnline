@@ -1,5 +1,7 @@
 package com.example.alex.oxylaundryonline;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,6 +27,7 @@ public class ListPromoAdapter extends RecyclerView.Adapter<ListPromoAdapter.View
     private ArrayList<String> mImages = new ArrayList<>();
     private Context mContext;
 
+
     public ListPromoAdapter(ArrayList<String> imageNames, ArrayList<String> images, Context context) {
         this.mImageNames = imageNames;
         this.mImages = images;
@@ -39,13 +42,16 @@ public class ListPromoAdapter extends RecyclerView.Adapter<ListPromoAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called.");
         //Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.img_promo);
         holder.txt_promo.setText(mImageNames.get(position));
         holder.btn_salin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("kode_promo",holder.txt_promo.getText().toString());
+                clipboard.setPrimaryClip(clip);
                 Toast.makeText(mContext,"Kode Promo Berhasil Disalin",Toast.LENGTH_SHORT).show();
             }
         });
@@ -68,5 +74,7 @@ public class ListPromoAdapter extends RecyclerView.Adapter<ListPromoAdapter.View
             txt_promo = itemView.findViewById(R.id.txt_promo);
             btn_salin = itemView.findViewById(R.id.btn_salin);
         }
+
     }
+
 }

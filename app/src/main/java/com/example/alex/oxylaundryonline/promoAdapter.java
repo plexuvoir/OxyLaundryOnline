@@ -1,5 +1,7 @@
 package com.example.alex.oxylaundryonline;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -29,17 +32,23 @@ public class promoAdapter extends RecyclerView.Adapter<promoAdapter.ViewHolder> 
     @Override
     public promoAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_promo, parent, false);
-        return new ViewHolder(v);
+        ViewHolder holder = new ViewHolder(v);
+
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(promoAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final promoAdapter.ViewHolder holder, final int position) {
         //binding value dari list item ke holder
         List_Item_Promo listItem = listItems.get(position);
         holder.kdPromo.setText(listItem.getKdPromo());
         holder.btSalin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("kode_promo",holder.kdPromo.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context,"Kode Promo Berhasil Disalin",Toast.LENGTH_SHORT).show();
                 mListener.onItemClick(position);
             }
         });

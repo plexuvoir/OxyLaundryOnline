@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -33,8 +34,9 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
     @Nullable
 //    private CheckBox senin, selasa, rabu, kamis, jumat, sabtu, minggu;
     private Spinner spinner, spinner2;
-    private TextView biaya;
-    private Button bt_submit;
+    private TextView biaya, txt_keterangan_promo;
+    private Button bt_submit, bt_cek_promo;
+    private EditText input_promo;
     int count=0;
     int quantity;
     String day;
@@ -87,7 +89,9 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
         spinner=(Spinner)inflate.findViewById(R.id.spinner);
         spinner2=(Spinner)inflate.findViewById(R.id.spinner2);
         bt_submit = inflate.findViewById(R.id.bt_sub_jdw);
-
+        bt_cek_promo = inflate.findViewById(R.id.btn_cek_promo);
+        txt_keterangan_promo = inflate.findViewById(R.id.txt_keterangan_promo);
+        input_promo = inflate.findViewById(R.id.input_promo);
 
 
         String [] items=new String[]{"1 Kali","1 Bulan","2 Bulan", "3 Bulan"};
@@ -234,6 +238,7 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                 }
                 post.put("UID", mAuth.getCurrentUser().getUid());
                 post.put("Jenis", spinner.getSelectedItem().toString());
+                post.put("Kode_Promo", input_promo.getText().toString());
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Buat Pesanan")
@@ -284,6 +289,27 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
             }
 
 
+        });
+
+        //final String [] kode_promo = new String[]{"BXYWZA","JKLUIO","OAGFXZ"};
+        bt_cek_promo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                for (int i = 0; i < kode_promo.length; i++) {
+//                    if (kode_promo_input.equalsIgnoreCase(kode_promo[i])){
+//                        txt_keterangan_promo.setText("Anda akan mendapatkan potongan harga sebesar 20%");
+//                    }
+//                }
+                String kode_promo_input = input_promo.getText().toString();
+                if (kode_promo_input.equalsIgnoreCase("AKHIRBULANMALESNYUCI")){
+                    txt_keterangan_promo.setText("Anda akan mendapatkan potongan harga sebesar 20%");
+                } else if (kode_promo_input.equalsIgnoreCase("TENGAHBULANASIK")){
+                    txt_keterangan_promo.setText("Anda akan mendapatkan potongan harga sebesar 10%");
+                } else if (kode_promo_input.equalsIgnoreCase("GRATISONGKIR")){
+                    txt_keterangan_promo.setText("Anda akan mendapatkan gratis ongkos antar jemput");
+                }
+            }
         });
 
 //        senin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
