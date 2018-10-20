@@ -1,92 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        >
+        android:layout_height="180dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
             android:background="@color/cardview_light_background"
-            >
+            android:orientation="horizontal">
+
             <ImageView
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@drawable/logo_oxy"
-                />
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:src="@drawable/logo_oxy" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:padding="25dp"
-                android:gravity="center">
+                android:padding="25dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
+                        android:id="@+id/tv_jenisPaket"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:layout_weight="2"
                         android:text="JENIS PAKET"
                         android:textColor="#212121"
-                        android:textSize="20sp"
-                        android:layout_weight="2"
-                        />
+                        android:textSize="20sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
-                        android:text="Nomor Order : "
-                        />
+                        android:text="Kode Order :" />
+
                     <TextView
+                        android:id="@+id/tv_noOrder"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:text="32839201"
-                        />
+                        android:text="32839201" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
+                        android:id="@+id/tv_tglAwal"
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
-                        android:text="Tanggal Awal"
-                        />
+                        android:text="Tanggal Awal" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
                         android:text=" - " />
+
                     <TextView
+                        android:id="@+id/tv_tglAkhir"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:text="Tanggal Akhir" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
-                        android:text="Penjemputan Selanjutnya : "
-                        />
+                        android:text="Penjemputan Selanjutnya : " />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
+                        android:id="@+id/tv_nextPick"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:text="25 Juli 2018" />

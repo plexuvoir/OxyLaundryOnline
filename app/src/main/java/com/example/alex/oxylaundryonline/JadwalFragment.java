@@ -23,8 +23,11 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -44,6 +47,8 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     HashMap post = new HashMap();
+    HashMap post1 = new HashMap();
+
 
     //    private int isCheckedGetCount(){
 //        //count=0;
@@ -163,21 +168,21 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
             public void onClick(View view) {
 
                 if (quantity == 1){
+                   // int count = 0;
                     for (int i = 0; i < 7; i++){
                         Calendar d = Calendar.getInstance();
                         d.add(Calendar.DATE, i);
                         String day1 = (String) DateFormat.format("EEE", d);
-                        if (day1.equalsIgnoreCase(day)){
-                            String date = spinner2.getSelectedItem().toString()+", "+(String) DateFormat.format("dd-MMMM-yyyy", d);
+                        if (day1.equalsIgnoreCase(day)) {
+                            String date = (String) DateFormat.format("dd-MMMM-yyyy", d);
                             Log.d("alex", date);
 //                            post.put("UID", mAuth.getCurrentUser().getUid());
 //                            post.put("Jenis", spinner.getSelectedItem().toString());
-                            post.put(Integer.toString(count)+"-day", date);
-
-
+                            post1.put("0" + Integer.toString(count) + "-day", date);
                         }
-
                     }
+                   // count = 0;
+
                 }
                 else if (quantity == 4){
                     int count = 0;
@@ -189,8 +194,8 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                         if (day1.equalsIgnoreCase(day)) {
                             count++;
                             //String[] days = new String[4];
-                            String date =  spinner2.getSelectedItem().toString()+", "+(String) DateFormat.format("dd-MMMM-yyyy", d);
-                            post.put(Integer.toString(count)+"-day", date);
+                            String date = (String) DateFormat.format("dd-MMMM-yyyy", d);
+                            post1.put("0"+Integer.toString(count)+"-day", date);
                         }
                     }
                     count = 0;
@@ -205,8 +210,8 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                         if (day1.equalsIgnoreCase(day)) {
                             count++;
                             //String[] days = new String[4];
-                            String date =  spinner2.getSelectedItem().toString()+", "+(String) DateFormat.format("dd-MMMM-yyyy", d);
-                            post.put(Integer.toString(count)+"-day", date);
+                            String date =  (String) DateFormat.format("dd-MMMM-yyyy", d);
+                            post1.put("0"+Integer.toString(count)+"-day", date);
                         }
                     }
                     count = 0;
@@ -223,12 +228,12 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                             count++;
                             //String[] days = new String[4];
                             if (count <= 9){
-                                String date =  spinner2.getSelectedItem().toString()+", "+(String) DateFormat.format("dd-MMMM-yyyy", d);
-                                post.put("0"+Integer.toString(count)+"-day", date);
+                                String date = (String) DateFormat.format("dd-MMMM-yyyy", d);
+                                post1.put("0"+Integer.toString(count)+"-day", date);
                             }
                             else {
-                                String date =  spinner2.getSelectedItem().toString()+", "+(String) DateFormat.format("dd-MMMM-yyyy", d);
-                                post.put(Integer.toString(count)+"-day", date);
+                                String date = (String) DateFormat.format("dd-MMMM-yyyy", d);
+                                post1.put(Integer.toString(count)+"-day", date);
                             }
 
                         }
@@ -238,6 +243,7 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                 }
                 post.put("UID", mAuth.getCurrentUser().getUid());
                 post.put("Jenis", spinner.getSelectedItem().toString());
+                post.put("Hari", spinner2.getSelectedItem().toString());
                 post.put("Kode_Promo", input_promo.getText().toString());
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -247,6 +253,7 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                             public void onClick(DialogInterface dialog, int which) {
                                 String idPesanan = db.getReference("Pesanan").push().getKey();
                                 DatabaseReference ref = db.getReference("Pesanan").child(idPesanan);
+                                DatabaseReference ref2 = db.getReference("Pesanan").child(idPesanan).child("Tanggal");
                                 ref.setValue(post).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -273,6 +280,7 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                                         }
                                     }
                                 });;
+                                ref2.setValue(post1);
 
 
 
@@ -408,6 +416,8 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
         return inflate;
 
     }
+
+
 
 }
 

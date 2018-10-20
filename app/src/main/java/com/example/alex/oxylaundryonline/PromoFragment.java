@@ -26,17 +26,17 @@ public class PromoFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        final View inflate =inflater.inflate(R.layout.fragment_aktivitas,null);
-        final View inflate2 =inflater.inflate(R.layout.list_promo,null);
-        kode_promo = inflate2.findViewById(R.id.txt_promo);
-        textview2  = inflate2.findViewById(R.id.textView2);
+        final View inflate =inflater.inflate(R.layout.fragment_promo,null);
 
         ((MainActivity)getActivity()).setActionBarTitle("Promo");
-        recyclerView = (RecyclerView) inflate.findViewById(R.id.recV_aktv);
+        recyclerView = (RecyclerView) inflate.findViewById(R.id.recV_promo);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         listItems.add(new List_Item_Promo("GRATISONGKIR", R.drawable.contoh_promo));
+
+        listItems.add(new List_Item_Promo("GRATISONGKIR", R.drawable.contoh_promo));
+
 
         adapter = new promoAdapter(listItems, getActivity(), new promoAdapter.OnItemClicked() {
             @Override
