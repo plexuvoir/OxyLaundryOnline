@@ -22,7 +22,7 @@ public class AktivitasFragment extends android.support.v4.app.Fragment {
         final View inflate =inflater.inflate(R.layout.fragment_aktivitas,null);
 
         ((MainActivity)getActivity()).setActionBarTitle("Aktivitas");
-
+//
 
         return inflate;
     }
