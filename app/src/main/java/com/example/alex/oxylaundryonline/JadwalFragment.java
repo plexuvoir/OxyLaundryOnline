@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -316,6 +317,8 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                     txt_keterangan_promo.setText("Anda akan mendapatkan potongan harga sebesar 10%");
                 } else if (kode_promo_input.equalsIgnoreCase("GRATISONGKIR")){
                     txt_keterangan_promo.setText("Anda akan mendapatkan gratis ongkos antar jemput");
+                } else {
+                    Toast.makeText(getContext(),"Kode Promo Tidak Sesuai",Toast.LENGTH_SHORT).show();
                 }
             }
         });

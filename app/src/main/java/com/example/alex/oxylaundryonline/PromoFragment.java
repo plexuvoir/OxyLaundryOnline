@@ -33,9 +33,11 @@ public class PromoFragment extends android.support.v4.app.Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        listItems.add(new List_Item_Promo("GRATISONGKIR", R.drawable.contoh_promo));
+        listItems.add(new List_Item_Promo("AKHIRBULANMALESNYUCI", R.drawable.poster_1));
 
-        listItems.add(new List_Item_Promo("GRATISONGKIR", R.drawable.contoh_promo));
+        listItems.add(new List_Item_Promo("TENGAHBULANASIK", R.drawable.poster_2));
+
+        listItems.add(new List_Item_Promo("GRATISONGKIR", R.drawable.poster_3));
 
 
         adapter = new promoAdapter(listItems, getActivity(), new promoAdapter.OnItemClicked() {
