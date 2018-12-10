@@ -8,6 +8,8 @@
     android:background="@drawable/biru"
     tools:context=".MainActivity">
 
+
+
     <RelativeLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"

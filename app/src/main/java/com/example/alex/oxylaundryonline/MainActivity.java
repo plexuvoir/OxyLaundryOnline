@@ -45,7 +45,7 @@ NavigationView.OnNavigationItemSelectedListener{
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if (user != null) {
-                    //Log.d(TAG, "sing in : "+user.getUid() );
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Keluar ", Toast.LENGTH_SHORT).show();
 
@@ -62,12 +62,14 @@ NavigationView.OnNavigationItemSelectedListener{
         //btm nav
         btmNav = findViewById(R.id.navigation);
         btmNav.setOnNavigationItemSelectedListener(this);
+
+        //draw nav
         drawNav = findViewById(R.id.nav_view);
         drawNav.setNavigationItemSelectedListener(this);
         loadFragment(new PromoFragment());
 
 
-
+        //draw nav user data
         mDatabase.child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -153,10 +155,9 @@ NavigationView.OnNavigationItemSelectedListener{
                 startActivity(new Intent(MainActivity.this, UserInfo.class));
                 drawer.closeDrawer(GravityCompat.START);
                 break;
-            case R.id.nav_about:
-                startActivity(new Intent(MainActivity.this,AboutActivity.class));
-                drawer.closeDrawer(GravityCompat.START);
-                break;
+            case R.id.nav_logout:
+                auth.signOut();
+                finish();
         }
         return true;
     }

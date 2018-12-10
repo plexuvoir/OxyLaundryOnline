@@ -169,12 +169,13 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
             public void onClick(View view) {
 
                 if (quantity == 1){
-                   // int count = 0;
+                    int count = 0;
                     for (int i = 0; i < 7; i++){
                         Calendar d = Calendar.getInstance();
                         d.add(Calendar.DATE, i);
                         String day1 = (String) DateFormat.format("EEE", d);
                         if (day1.equalsIgnoreCase(day)) {
+                            count++;
                             String date = (String) DateFormat.format("dd-MMMM-yyyy", d);
                             Log.d("alex", date);
 //                            post.put("UID", mAuth.getCurrentUser().getUid());
